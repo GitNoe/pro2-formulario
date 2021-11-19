@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+*{ /*root*/
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.container{ /*contenedor general*/
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .7)), url(../img/fondo-banner.jpg) center no-repeat;
+    background-size: cover;
+}
+
+/*PRIMERA PARTE*/
+.banner{ /*div que incluye los elementos de la primera página*/
+    color: white;
+    position: absolute;
+    width: 750px;
+    top: 50%; /*respecto a su padre*/
+	left: 50%; /*respecto a su padre*/
+	transform: translate(-50%, -50%); /*respecto a su propio tamaño y centro*/
+    display: flex; /*¿prescibdible?*/
+	flex-direction: column; /*para que siempre se vea en dirección columna*/
+	justify-content: center;
+	align-items: center;
+}
+.banner-head{ /*titular*/
+    font-size: 60px;
+	text-transform: uppercase;
+	margin-bottom: 80px;
+	border-top: 7px solid #fff;
+	border-bottom: 7px solid #fff;
+}
+.arrow { /*flecha*/
+	font-size: 50px;
+	margin-bottom: 30px;
+	animation: anim 2s infinite;
+}
+@keyframes anim { /*animación de la flecha, ejecutada justo arriba*/
+	0% {transform: translateY(0);}
+	20% {transform: translateY(0);}
+	40% {transform: translateY(-30px);}
+	50% {transform: translateY(0);}
+	60% {transform: translateY(-15);}
+	80% {transform: translateY(0);}
+	100% {transform: translateY(0);}
+}
+.banner-click{ /*primer botón, muchas características*/
+    width: 200px;
+	padding: 15px;
+	/*font-family: 'Roboto Condensed', sans-serif;*/ /*ya está en el padre*/
+	text-transform: uppercase;
+	font-size: 17px;
+	letter-spacing: 1px;
+	background: transparent; /*para ver la imagen de fondo*/
+	color: #fff;
+	border-radius: 50px;
+	outline: none;
+	cursor: pointer;
+	border: 4px solid #fff;
+	transition: transform;
+}
+.far{
+    font-size: 70px;
+    margin-left: 10px;
+}
+
+/*SEGUNDA PARTE*/
+.form-container{ /*contenedor del formulario y del título 2*/
+    display: flex; /*para que los elementos se vean al lado horizontal*/
+	width: 800px;
+	height: 600px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
+    opacity: 0;
+	visibility: hidden; /*oculta la segunda parte hasta que se clica el botón*/
+	transition: opacity 1s;
+}
+
+.sign-up-form{ /*parte del formulario*/
+    color: #fff;
+    width: 50%;
+	background-color: #7070e2;
+	padding: 120px 50px;
+	box-sizing: border-box;
+    letter-spacing: 1px;
+	font-weight: 200;
+}
+.sign-up-form p { /*get news*/
+	font-size: 18px;
+	margin-bottom: 8px;
+}
+.sign-up-form label { /*opciones de sí y no*/
+	font-family: 'Oswald', sans-serif;
+	font-size: 15px;
+	text-transform: uppercase;
+}
+
+.form-input{ /*campos para introducir los datos*/
+    width: 300px;
+	/*font-family: 'Oswald', sans-serif;*/
+	font-size: 18px;
+	letter-spacing: 1px;
+	color: #cc683c;
+	background-color: transparent;
+	border: none;
+	border-bottom: 2px solid #fff;
+	margin-bottom: 50px;
+	outline: none;
+	padding: 10px 0;
+	transition: border-bottom-color .8s; /*focus que sigue*/
+}
+.form-input:focus { /*línea de debajo de los input*/
+	border-bottom-color: #cc683c;
+}
+
+/*checkbox*/
+.sign-up-form input[type="checkbox"] {
+	position: relative;
+	/* chrome */
+	-webkit-appearance: none;
+	/* firefox */
+	-moz-appearance: none;
+	appearance: none;
+	height: 15px;
+	width: 30px;
+	background-color: rgb(128, 128, 128);
+	outline: none;
+	border-radius: 20px;
+	margin: 0 8px;
+	/* inner shadow effect */
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, .4);
+	transition: background-color .5s;
+}
+.sign-up-form input:checked[type="checkbox"] { /*color de abajo*/
+	background-color: #3ccc4f;
+}
+.sign-up-form input[type="checkbox"]::before { /*mini-botón que se puede cambiar de sitio*/
+	content: '';
+	width: 17px;
+	height: 17px;
+	background-color: rgb(39, 39, 39);
+	position: absolute;
+	border-radius: 50%;
+	top: -1px;
+	left: -4px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+	transition: left .5s;
+}
+.sign-up-form input:checked[type="checkbox"]::before { /*espaciado del mini-botón*/
+	left: 18px;
+}
+
+.sign-up-form button { /*botón del final del formulario*/
+	width: 150px;
+	display: block;
+	margin-top: 80px;
+	padding: 8px 5px;
+	background-color: transparent;
+	color: inherit;
+	outline: none;
+	border-radius: 50px;
+	border: 2px solid #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+	/*font-family: 'Roboto Condensed', sans-serif;*/
+	font-size: 15px;
+	letter-spacing: 1px; /*se repite por que por alguna razón no se hereda del padre*/
+}
+
+.header{ /*caja al lado del formulario*/
+    width: 50%;
+	background: linear-gradient(to top, rgba(0, 0, 0, .4), rgba(0, 0, 0, .2)), url(../img/fondo-header.jpg) center no-repeat;
+	background-size: cover;
+	box-shadow: -10px 0 30px rgba(0, 0, 0, .3);
+	position: relative; /*para poder poner en absoluto el contenido siguiente*/
+}
+.header h1 { /*características del titular*/
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	color: #fff;
+	/*font-family: 'Oswald', sans-serif;*/
+	font-size: 30px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.x-btn { /*botón de cerrado de la segunda pantalla, para volver a la primera*/
+	position: absolute;
+	bottom: -6%;
+	right: 1%;
+	font-size: 25px;
+	font-weight: bolder; /*no funciona porque es un caracter especial, no una fuente*/
+	color: #000000;
+	cursor: pointer;
+}
+
+/*MEDIAS QUERIES*/
+
+/* going down from desktop, at around 850 view started breaking */ 
+/*habría que filtrar las cosas imprescindibles para nuestro proyecto*/
+@media (max-width: 850px){ /*se ajustan todos los elementos que se quieren cambiar a un máximo de ancho de 850*/
+	.form-container {
+		width: 600px;
+		height: 400px;
+	}
+	.sign-up-form {
+		padding: 50px 30px;
+	}
+	.form-input {
+		width: 200px;
+		font-size: 14px;
+		margin-bottom: 25px;
+		padding: 7px 0;
+	}
+	.sign-up-form p {
+		font-size: 15pxx;
+	}
+	.sign-up-form label {
+		font-size: 13px;
+	}
+	.sign-up-form input[type="checkbox"] {
+		width: 25px;
+		height: 12px;
+	}
+	.sign-up-form input[type="checkbox"]::before {
+		width: 14px;
+		height: 14px;
+	}
+	.sign-up-form button {
+		margin-top: 50px;
+		font-size: 13px;
+		padding: 6px 4px;
+		width: 120px;
+		border-width: 1px;
+	}
+	.header h1 {
+		font-size: 30px; /*tontería porque no se va a ver la segunda columna*/
+	}
+}
+
+@media (max-width: 800px){ /*ancho máximo 800, ya afecta a la primera parte*/
+	.banner {
+		width: 450px;
+	}
+	.banner-head {
+		font-size: 60px;
+		margin-bottom: 40px;
+		border-width: 4px;
+	}
+	.arrow {
+		font-size: 30px;
+	}
+	.banner-click {
+		width: 150px;
+		padding: 10px;
+		font-size: 15px;
+	}
+}
+
+@media (max-width: 650px){
+	.header {
+		display: none; /*hace que la segunda columna se oculte*/
+	}
+	.form-container {
+		width: 300px;
+	}
+	.sign-up-form {
+		width: 100%;
+	}
+}
+
+@media (max-width: 500px){
+	.banner {
+		width: 300px;
+	}
+	.banner-head {
+		font-size: 40px;
+	}
+}
+
+/*asegurarse de que las queries se cierran para no contradecir el css anterior*/
