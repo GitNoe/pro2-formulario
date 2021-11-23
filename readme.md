@@ -1,5 +1,3 @@
-# READ ME DE FORM
-
 ## Hemos llegado aquí tras realizar los siguientes pasos
 
 1. Instalar laragon
